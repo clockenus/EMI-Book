@@ -22,7 +22,7 @@ public class EMIBook {
 
         @SubscribeEvent
         public static void disableEmi(ScreenEvent.Opening event) {
-            if(ModConfig.disableEmiOnScreenOpening) {
+            if(ModConfig.getConfig().disableEmiOnScreenOpening) {
                 EmiConfig.enabled = false;
             }
         }

@@ -9,7 +9,7 @@ public class EMIBookClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ScreenEvents.BEFORE_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
-            if(ModConfig.disableEmiOnScreenOpening) {
+            if(ModConfig.getConfig().disableEmiOnScreenOpening) {
                 EmiConfig.enabled = false;
             }
         });

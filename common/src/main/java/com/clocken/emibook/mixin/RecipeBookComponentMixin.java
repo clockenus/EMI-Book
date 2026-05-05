@@ -14,7 +14,7 @@ public class RecipeBookComponentMixin {
     private int mixinUpdateScreenPosition(int original, int width, int imageWidth) {
         int i;
 
-        if (EmiConfig.enabled && ModConfig.screenShift) {
+        if (EmiConfig.enabled && ModConfig.getConfig().screenShift) {
             i = 177 + (width - imageWidth - 200) / 2;
         } else {
             i = (width - imageWidth) / 2;
