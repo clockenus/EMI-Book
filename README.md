@@ -8,7 +8,7 @@
 - Adds 2 custom Config Presets ("Recipe Book" and "Two Pages").
 - Option to shift screen in the right direction when EMI is opened (simulates a recipe book behavior; used in "Recipe Book" preset).
 - Option to close EMI every time a screen is opened (simulates a recipe book behavior).
-- ## Recommendations for EMI
+- ## Recommendations
 Mods, that improve expirience with EMI furthermore:
 - [TooManyRecipeViewers](https://modrinth.com/mod/tmrv) — a compatibility layer for running JEI plugins.
 - [EMI++ Forked](https://modrinth.com/mod/emi-plus-backport) — a fork of EMI++, that adds many small features.
