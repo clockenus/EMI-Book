@@ -42,3 +42,17 @@ neoForge {
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
+//repositories {
+//    maven {
+//        name = "TerraformersMC"
+//        url = "https://maven.terraformersmc.com/"
+//    }
+//    maven { url "https://maven.shedaniel.me/" }
+//}
+dependencies {
+    // EMI
+    implementation "dev.emi:emi-neoforge:${emi_version}"
+
+    // Cloth Config
+    implementation "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
+}

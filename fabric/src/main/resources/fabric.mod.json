@@ -8,15 +8,21 @@
         "${mod_author}"
     ],
     "contact": {
-        "homepage": "https://fabricmc.net/",
-        "sources": "https://github.com/FabricMC/fabric-example-mod"
+        "homepage": "https://github.com/clockenus/EMI-Book",
+        "sources": "https://github.com/clockenus/EMI-Book"
     },
     "license": "${license}",
     "icon": "${mod_id}.png",
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.example.examplemod.ExampleMod"
+            "com.clocken.emibook.EMIBook"
+        ],
+        "client": [
+            "com.clocken.emibook.EMIBookClient"
+        ],
+        "modmenu": [
+            "com.clocken.emibook.integration.ModMenuIntegration"
         ]
     },
     "mixins": [
@@ -27,10 +33,12 @@
         "fabricloader": ">=${fabric_loader_version}",
         "fabric-api": "*",
         "minecraft": "${minecraft_version}",
-        "java": ">=${java_version}"
+        "java": ">=${java_version}",
+        "emi": ">=${emi_version}"
     },
     "suggests": {
-        "another-mod": "*"
+        "cloth_config": ">=${cloth_config_version}",
+        "mod_menu": ">=${mod_menu_version}"
     }
 }
   
