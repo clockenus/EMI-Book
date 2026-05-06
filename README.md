@@ -1,5 +1,8 @@
  [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine/)
 # Overview
+[![fabric](https://wsrv.nl/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2F%40intergrav%2Fdevins-badges%403%2Fassets%2Fcozy%2Fsupported%2Ffabric_vector.svg&n=-1)](https://fabricmc.net/)
+[![neoforge](https://wsrv.nl/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2F%40intergrav%2Fdevins-badges%403%2Fassets%2Fcozy%2Fsupported%2Fneoforge_vector.svg&n=-1)](https://neoforged.net/)
+
 **EMI Book** is a small addon for EMI Recipe Viewer, that adds custom config presets and behavior.
 ### Dependecies
 - [EMI Recipe Viewer](https://modrinth.com/mod/emi)
