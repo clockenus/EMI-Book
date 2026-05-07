@@ -1,58 +1,109 @@
 plugins {
     id 'multiloader-loader'
-    id 'net.neoforged.moddev.legacyforge'
+    id 'net.minecraftforge.gradle'
+    id 'org.parchmentmc.librarian.forgegradle'
+    id 'org.spongepowered.mixin'
 }
 
-mixin {
-    add(sourceSets.main, "${mod_id}.refmap.json")
+minecraft {
+    mappings channel: 'parchment', version: "${parchment_version}-${parchment_minecraft}"
 
-    config("${mod_id}.mixins.json")
-    config("${mod_id}.forge.mixins.json")
-}
+    accessTransformer = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg').exists()
+            ? project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
+            : null
 
-legacyForge {
-    version = "${minecraft_version}-${forge_version}"
-
-    validateAccessTransformers = true
-
-    def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
-    if (at.exists()) {
-        accessTransformers = ["src/main/resources/META-INF/accesstransformer.cfg"]
-    }
-    parchment {
-        minecraftVersion = parchment_minecraft
-        mappingsVersion = parchment_version
-    }
     runs {
         client {
-            client()
-        }
-        data {
-            data()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            arg '-mixin.config=emibook.mixins.json'
+            arg '-mixin.config=emibook.forge.mixins.json'
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                    source project(':common').sourceSets.main
+                }
+            }
         }
         server {
-            server()
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            arg '-mixin.config=emibook.mixins.json'
+            arg '-mixin.config=emibook.forge.mixins.json'
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                    source project(':common').sourceSets.main
+                }
+            }
         }
-    }
-
-    mods {
-        "${mod_id}" {
-            sourceSet sourceSets.main
+        data {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            args '--mod', mod_id, '--all',
+                    '--output', file('src/generated/resources/').getAbsolutePath(),
+                    '--existing', file('src/main/resources/').getAbsolutePath()
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                    source project(':common').sourceSets.main
+                }
+            }
         }
     }
 }
 
 sourceSets.main.resources.srcDir 'src/generated/resources'
 
+repositories {
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/releases/'
+    }
+    maven { url "https://maven.shedaniel.me/" }
+}
+
 dependencies {
-    compileOnly project(":common")
-    annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    annotationProcessor('org.spongepowered:mixin:0.8.5-SNAPSHOT:processor')
+    compileOnly("io.github.llamalad7:mixinextras-common:0.3.5")
+    annotationProcessor("io.github.llamalad7:mixinextras-common:0.3.5")
+    compileOnly("io.github.llamalad7:mixinextras-forge:0.3.5")
+    annotationProcessor("io.github.llamalad7:mixinextras-forge:0.3.5")
+    implementation("io.github.llamalad7:mixinextras-forge:0.3.5")
+
+    // EMI - compileOnly for API, runtimeOnly puts the actual mod jar in the dev run
+    compileOnly("maven.modrinth:emi:${emi_forge_version}") { transitive = false }
+    runtimeOnly(fg.deobf("maven.modrinth:emi:${emi_forge_version}")) { transitive = false }
+
+    // Cloth Config
+    implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
+}
+
+mixin {
+    add(sourceSets.main, "${mod_id}.refmap.json")
+    config("${mod_id}.mixins.json")
+    config("${mod_id}.forge.mixins.json")
 }
 
 jar {
-    finalizedBy('reobfJar')
     manifest.attributes([
-            "MixinConfigs": "${mod_id}.mixins.json,${mod_id}.forge.mixins.json"
+            'MixinConfigs': "${mod_id}.mixins.json,${mod_id}.forge.mixins.json"
     ])
+    finalizedBy('reobfJar')
 }

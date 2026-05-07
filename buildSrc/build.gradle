@@ -1,3 +1,24 @@
 plugins {
     id 'groovy-gradle-plugin'
 }
+
+repositories {
+    maven {
+        name = 'Forge'
+        url = 'https://maven.minecraftforge.net/'
+    }
+    maven {
+        name = 'Sponge Snapshots'
+        url = 'https://repo.spongepowered.org/repository/maven-public/'
+    }
+    maven {
+        name = 'ParchmentMC'
+        url = 'https://maven.parchmentmc.org/'
+    }
+}
+
+dependencies {
+    implementation 'net.minecraftforge.gradle:ForgeGradle:6.+'
+    implementation 'org.parchmentmc:librarian:1.+'
+    implementation 'org.spongepowered:mixingradle:0.7.+'
+}
