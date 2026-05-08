@@ -1,22 +1,31 @@
 plugins {
     id 'multiloader-common'
-    id 'net.neoforged.moddev.legacyforge'
+    id 'net.minecraftforge.gradle'
+    id 'org.parchmentmc.librarian.forgegradle'
 }
 
-legacyForge {
-    mcpVersion = minecraft_version
-    if (file("src/main/resources/META-INF/accesstransformer.cfg").exists()) {
-        accessTransformers = ["src/main/resources/META-INF/accesstransformer.cfg"]
-    }
-    parchment {
-        minecraftVersion = parchment_minecraft
-        mappingsVersion = parchment_version
-    }
+minecraft {
+    mappings channel: 'parchment', version: "${parchment_version}-${parchment_minecraft}"
+
+    runs {} // no runs needed in common
 }
 
 dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
+    annotationProcessor 'org.spongepowered:mixin:0.8.5-SNAPSHOT:processor'
+    compileOnly("io.github.llamalad7:mixinextras-common:0.3.5")
+    annotationProcessor("io.github.llamalad7:mixinextras-common:0.3.5")
+    compileOnly("io.github.llamalad7:mixinextras-forge:0.3.5")
+    annotationProcessor("io.github.llamalad7:mixinextras-forge:0.3.5")
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+
+    // EMI
+    compileOnly "dev.emi:emi-xplat-mojmap:${emi_version}"
+
+    // Cloth Config
+    compileOnly "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
 }
 
 configurations {
