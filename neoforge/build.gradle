@@ -54,5 +54,5 @@ dependencies {
     implementation "dev.emi:emi-neoforge:${emi_version}"
 
     // Cloth Config
-    implementation "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
+    api "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
 }

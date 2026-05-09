@@ -8,7 +8,10 @@ import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 public class EMIBookClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+
+        // todo: screen != newScreen from neoforge
         ScreenEvents.BEFORE_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
+
             if(ModConfig.getConfig().disableEmiOnScreenOpening) {
                 EmiConfig.enabled = false;
             }

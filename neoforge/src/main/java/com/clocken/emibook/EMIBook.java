@@ -3,6 +3,8 @@ package com.clocken.emibook;
 import com.clocken.emibook.config.ModConfig;
 import dev.emi.emi.config.EmiConfig;
 import me.shedaniel.autoconfig.AutoConfig;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModLoadingContext;
@@ -27,7 +29,10 @@ public class EMIBook {
 
         @SubscribeEvent
         public static void disableEmi(ScreenEvent.Opening event) {
-            if(ModConfig.getConfig().disableEmiOnScreenOpening) {
+            Screen screen = event.getCurrentScreen();
+            Screen newScreen = event.getNewScreen();
+
+            if(ModConfig.getConfig().disableEmiOnScreenOpening && screen != newScreen) {
                 EmiConfig.enabled = false;
             }
         }

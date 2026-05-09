@@ -6,7 +6,7 @@
 **EMI Book** is a small addon for EMI Recipe Viewer, that adds custom config presets and behavior.
 ### Dependecies
 - [EMI Recipe Viewer](https://modrinth.com/mod/emi)
-- [Cloth Config](https://modrinth.com/mod/cloth-config) ~~(optional, for configuring custom behavior)~~ (will be changed in the future versions)
+- [Cloth Config](https://modrinth.com/mod/cloth-config)
 ## Features
 - Adds 2 custom Config Presets ("Recipe Book" and "Two Pages").
 - Option to shift screen in the right direction when EMI is opened (simulates a recipe book behavior; used in "Recipe Book" preset).

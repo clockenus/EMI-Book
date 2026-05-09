@@ -8,7 +8,7 @@
         "${mod_author}"
     ],
     "contact": {
-        "homepage": "https://github.com/clockenus/EMI-Book",
+        "homepage": "https://modrinth.com/mod/emi-book",
         "sources": "https://github.com/clockenus/EMI-Book"
     },
     "license": "${license}",
@@ -34,10 +34,10 @@
         "fabric-api": "*",
         "minecraft": "${minecraft_version}",
         "java": ">=${java_version}",
-        "emi": ">=${emi_version}"
+        "emi": ">=${emi_version}",
+        "cloth-config": ">=${cloth_config_version}"
     },
     "suggests": {
-        "cloth_config": ">=${cloth_config_version}",
         "mod_menu": ">=${mod_menu_version}"
     }
 }
