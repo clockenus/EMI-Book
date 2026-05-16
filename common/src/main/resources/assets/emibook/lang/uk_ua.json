@@ -7,6 +7,9 @@
   "text.autoconfig.emibook.option.disableEmiOnScreenOpening": "Закривати EMI",
   "text.autoconfig.emibook.option.disableEmiOnScreenOpening.@Tooltip": "Закриває EMI кожного разу коли відкривається екран (імітує поведінку книги рецептів).",
 
+  "text.autoconfig.emibook.option.switchEffectLocation": "Перемикати розташування ефектів",
+  "text.autoconfig.emibook.option.switchEffectLocation.@Tooltip": "Перемикає розташування ефектів з RIGHT на RIGHT_COMPRESSED коли EMI відкрите.",
+
   "config.emi.presets.emibook": "EMI Book",
   "config.emi.presets.recipe_book": "Книга рецептів",
   "config.emi.presets.two_pages": "Двосторінковий"

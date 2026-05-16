@@ -17,6 +17,10 @@ public class ModConfig implements ConfigData {
     @Comment("Closes EMI every time a screen is opened (simulates a recipe book behaviour): true/false.")
     public boolean disableEmiOnScreenOpening = false;
 
+    @ConfigEntry.Gui.Tooltip
+    @Comment("Switches effect location from RIGHT to RIGHT_COMPRESSED when EMI is active: true/false.")
+    public boolean switchEffectLocation = false;
+
     public static ModConfig getConfig() {
         return AutoConfig.getConfigHolder(ModConfig.class).getConfig();
     }

@@ -7,6 +7,9 @@
   "text.autoconfig.emibook.option.disableEmiOnScreenOpening": "Close EMI",
   "text.autoconfig.emibook.option.disableEmiOnScreenOpening.@Tooltip": "Closes EMI every time a screen is opened (simulates a recipe book behaviour).",
 
+  "text.autoconfig.emibook.option.switchEffectLocation": "Switch effect location",
+  "text.autoconfig.emibook.option.switchEffectLocation.@Tooltip": "Switches effect location from RIGHT to RIGHT_COMPRESSED when EMI is active.",
+
   "config.emi.presets.emibook": "EMI Book",
   "config.emi.presets.recipe_book": "Recipe Book",
   "config.emi.presets.two_pages": "Two Pages"

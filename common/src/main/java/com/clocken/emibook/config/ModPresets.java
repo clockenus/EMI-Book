@@ -16,10 +16,12 @@ public class ModPresets {
     public static Runnable recipeBook = () -> {
         ModConfig.getConfig().screenShift = true;
         ModConfig.getConfig().disableEmiOnScreenOpening = true;
+        ModConfig.getConfig().switchEffectLocation = true;
         ModConfig.save();
 
         EmiConfig.searchSidebar = SidebarSide.LEFT;
         EmiConfig.recipeBookAction = RecipeBookAction.TOGGLE_VISIBILITY;
+        EmiConfig.effectLocation = EffectLocation.RIGHT;
         EmiConfig.searchSidebarFocus = SidebarType.NONE;
         EmiConfig.recipeTreeButtonVisibility = ButtonVisibility.HIDDEN;
 
@@ -29,16 +31,18 @@ public class ModPresets {
                 new SidebarPages.SidebarPage(SidebarType.INDEX)
         ));
         EmiConfig.leftSidebarTheme = SidebarTheme.VANILLA;
-        EmiConfig.leftSidebarSize.values.set(0, 8);
+        EmiConfig.leftSidebarSize.values.set(0, 7);
         EmiConfig.leftSidebarSize.values.set(1, 7);
         EmiConfig.leftSidebarAlign = new ScreenAlign(
                 ScreenAlign.Horizontal.RIGHT,
                 ScreenAlign.Vertical.CENTER
         );
+        EmiConfig.leftSidebarHeader = HeaderType.VISIBLE;
 
         // right sidebar
         setPages(EmiConfig.rightSidebarPages, List.of(
         ));
+        EmiConfig.rightSidebarTheme = SidebarTheme.VANILLA;
 
         // binds
         EmiConfig.toggleVisibility = new EmiBind("key.emi.toggle_visibility",InputConstants.UNKNOWN.getValue());

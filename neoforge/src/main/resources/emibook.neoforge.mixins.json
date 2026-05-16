@@ -3,7 +3,9 @@
   "minVersion": "0.8",
   "package": "com.clocken.emibook.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+    "EmiScreenManagerMixin"
+  ],
   "client": [
   ],
   "server": [],
