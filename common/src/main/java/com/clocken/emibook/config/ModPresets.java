@@ -27,8 +27,8 @@ public class ModPresets {
 
         // left sidebar
         setPages(EmiConfig.leftSidebarPages, List.of(
-                new SidebarPages.SidebarPage(SidebarType.CRAFTABLES),
-                new SidebarPages.SidebarPage(SidebarType.INDEX)
+                new SidebarPages.SidebarPage(SidebarType.INDEX),
+                new SidebarPages.SidebarPage(SidebarType.CRAFTABLES)
         ));
         EmiConfig.leftSidebarTheme = SidebarTheme.VANILLA;
         EmiConfig.leftSidebarSize.values.set(0, 7);
