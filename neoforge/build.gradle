@@ -55,4 +55,7 @@ dependencies {
 
     // Cloth Config
     api "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
+
+    // Reliable Advancements
+    implementation "maven.modrinth:reliable-advancements:${reliable_advancements_version}-neoforge"
 }
