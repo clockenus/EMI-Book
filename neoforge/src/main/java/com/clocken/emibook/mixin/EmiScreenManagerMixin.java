@@ -18,7 +18,7 @@ public class EmiScreenManagerMixin {
 
     @Inject(method = "renderWidgets(Ldev/emi/emi/runtime/EmiDrawContext;IIFLdev/emi/emi/screen/EmiScreenBase;)V", at = @At("HEAD"))
     private static void emibook$renderWidgets(EmiDrawContext context, int mouseX, int mouseY, float delta, EmiScreenBase base, CallbackInfo ci) {
-        if (!ModConfig.getConfig().switchEffectLocation) return;
+        if (!ModConfig.get().switchEffectLocation) return;
 
         if (EmiConfig.enabled && EmiConfig.effectLocation == EffectLocation.RIGHT) {
             EmiConfig.effectLocation = EffectLocation.RIGHT_COMPRESSED;
@@ -29,6 +29,9 @@ public class EmiScreenManagerMixin {
 
     @Redirect(method = "keyPressed(III)Z", at = @At(value = "INVOKE", target = "Ldev/emi/emi/screen/EmiScreenManager;isDisabled()Z"))
     private static boolean emibook$keyPressed() {
-        return !EmiReloadManager.isLoaded();
+        if (ModConfig.get().independentBinds) {
+            return !EmiReloadManager.isLoaded();
+        }
+        return !EmiReloadManager.isLoaded() || !EmiConfig.enabled;
     }
 }

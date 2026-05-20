@@ -12,7 +12,7 @@ public class EMIBookClient implements ClientModInitializer {
         // todo: screen != newScreen from neoforge
         ScreenEvents.BEFORE_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
 
-            if(ModConfig.getConfig().disableEmiOnScreenOpening) {
+            if(ModConfig.get().disableEmiOnScreenOpening) {
                 EmiConfig.enabled = false;
             }
         });

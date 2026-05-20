@@ -14,9 +14,10 @@ public class ModPresets {
     @EmiConfig.Comment("Recipe book-like preset with index and craftables.")
     @EmiConfig.ConfigValue("presets.recipe-book")
     public static Runnable recipeBook = () -> {
-        ModConfig.getConfig().screenShift = true;
-        ModConfig.getConfig().disableEmiOnScreenOpening = true;
-        ModConfig.getConfig().switchEffectLocation = true;
+        ModConfig.get().screenShift = true;
+        ModConfig.get().disableEmiOnScreenOpening = true;
+        ModConfig.get().switchEffectLocation = true;
+        ModConfig.get().independentBinds = true;
         ModConfig.save();
 
         EmiConfig.searchSidebar = SidebarSide.LEFT;
@@ -52,8 +53,10 @@ public class ModPresets {
     @EmiConfig.Comment("Two pages on the sides in the recipe book style. With favorites and lookup history.")
     @EmiConfig.ConfigValue("presets.two-pages")
     public static Runnable twoPages = () -> {
-        ModConfig.getConfig().screenShift = false;
-        ModConfig.getConfig().disableEmiOnScreenOpening = true;
+        ModConfig.get().screenShift = false;
+        ModConfig.get().disableEmiOnScreenOpening = true;
+        ModConfig.get().switchEffectLocation = false;
+        ModConfig.get().independentBinds = true;
         ModConfig.save();
 
         EmiConfig.searchSidebar = SidebarSide.RIGHT;

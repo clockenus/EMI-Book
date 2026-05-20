@@ -13,7 +13,7 @@ public class RecipeBookComponentMixin {
 
     @Inject(method = "updateScreenPosition(II)I", at = @At("HEAD"), cancellable = true)
     private void emibook$updateScreenPosition(int width, int imageWidth, CallbackInfoReturnable<Integer> cir) {
-        if (EmiConfig.enabled && ModConfig.getConfig().screenShift) {
+        if (EmiConfig.enabled && ModConfig.get().screenShift) {
             int i = 177 + (width - imageWidth - 200) / 2;
             cir.setReturnValue(i);
         }

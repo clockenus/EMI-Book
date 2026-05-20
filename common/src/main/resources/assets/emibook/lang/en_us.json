@@ -1,14 +1,17 @@
 {
   "text.autoconfig.emibook.title": "EMI Book",
 
-  "text.autoconfig.emibook.option.screenShift": "Screen Shift",
-  "text.autoconfig.emibook.option.screenShift.@Tooltip": "Shifts screen in the right direction when EMI is opened (simulates a recipe book behaviour).",
+  "text.autoconfig.emibook.option.screenShift": "Screen shift",
+  "text.autoconfig.emibook.option.screenShift.@Tooltip": "Shifts screen in the right direction when EMI is active (simulates a recipe book behaviour).",
 
   "text.autoconfig.emibook.option.disableEmiOnScreenOpening": "Close EMI",
-  "text.autoconfig.emibook.option.disableEmiOnScreenOpening.@Tooltip": "Closes EMI every time a screen is opened (simulates a recipe book behaviour).",
+  "text.autoconfig.emibook.option.disableEmiOnScreenOpening.@Tooltip": "Shows EMI only in places of Recipe Book.",
 
   "text.autoconfig.emibook.option.switchEffectLocation": "Switch effect location",
   "text.autoconfig.emibook.option.switchEffectLocation.@Tooltip": "Switches effect location from RIGHT to RIGHT_COMPRESSED when EMI is active.",
+
+  "text.autoconfig.emibook.option.independentBinds": "Independent keybinds",
+  "text.autoconfig.emibook.option.independentBinds.@Tooltip": "Makes EMI keybinds work even if it's not active.",
 
   "config.emi.presets.emibook": "EMI Book",
   "config.emi.presets.recipe_book": "Recipe Book",
