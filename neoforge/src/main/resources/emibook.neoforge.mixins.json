@@ -3,13 +3,8 @@
   "minVersion": "0.8",
   "package": "com.clocken.emibook.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
-    "EmiScreenManagerMixin"
-  ],
-  "client": [
-    "reliable_advancements.AbstractWidgetMixin",
-    "RecipeScreenMixin"
-  ],
+  "mixins": [],
+  "client": [],
   "server": [],
   "injectors": {
     "defaultRequire": 1

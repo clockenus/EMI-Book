@@ -56,6 +56,6 @@ dependencies {
     // Cloth Config
     api "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
 
-    // Reliable Advancements
-    implementation "maven.modrinth:reliable-advancements:${reliable_advancements_version}-neoforge"
+    // MixinSquared
+    implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-neoforge:0.3.7-beta.2"))
 }

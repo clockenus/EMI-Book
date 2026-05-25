@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 public class ConfigPresetScreenMixin {
 
     @Redirect(method = "init()V", at = @At(value = "INVOKE", target = "Ljava/lang/Class;getFields()[Ljava/lang/reflect/Field;"))
-    private Field[] emibook$init(Class instance) {
+    private Field[] emibook$initRedirect(Class instance) {
         return Stream.concat(
                 Arrays.stream(ModPresets.class.getFields()),
                 Arrays.stream(instance.getFields())

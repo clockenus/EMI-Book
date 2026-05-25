@@ -9,11 +9,19 @@ public class EMIBookClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-        // todo: screen != newScreen from neoforge
+        // imitateRecipeBook
         ScreenEvents.BEFORE_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
+            if(!ModConfig.get().imitateRecipeBook) return;
 
-            if(ModConfig.get().disableEmiOnScreenOpening) {
-                EmiConfig.enabled = false;
+            for (String disallowedScreen : ModConfig.get().DISALLOWED_SCREENS) {
+                try {
+                    Class<?> clazz = Class.forName(disallowedScreen);
+                    if(clazz.isInstance(screen)) {
+                        EmiConfig.enabled = false;
+                    }
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
     }

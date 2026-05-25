@@ -58,6 +58,9 @@ repositories {
         url = "https://maven.terraformersmc.com/"
     }
     maven { url "https://maven.shedaniel.me/" }
+
+    // MixinSquared
+    maven { url = "https://maven.bawnorton.com/releases" }
 }
 
 // Declare capabilities on the outgoing configurations.
@@ -117,8 +120,7 @@ processResources {
 
             'emi_version'                  : emi_version,
             'cloth_config_version'         : cloth_config_version,
-            'mod_menu_version'             : mod_menu_version,
-            'reliable_advancements_version': reliable_advancements_version
+            'mod_menu_version'             : mod_menu_version
     ]
 
     filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', 'META-INF/neoforge.mods.toml', '*.mixins.json']) {

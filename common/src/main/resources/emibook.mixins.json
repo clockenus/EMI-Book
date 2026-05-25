@@ -5,10 +5,18 @@
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_18",
   "mixins": [
+    "EmiScreenManagerMixin"
   ],
   "client": [
     "ConfigPresetScreenMixin",
-    "RecipeBookComponentMixin"
+    "RecipeBookComponentMixin",
+    "RecipeScreenMixin",
+    "buttons.AnvilScreenMixin",
+    "buttons.BrewingStandScreenMixin",
+    "buttons.CartographyTableScreenMixin",
+    "buttons.GrindstoneScreenMixin",
+    "buttons.SmithingScreenMixin",
+    "buttons.StonecutterScreenMixin"
   ],
   "server": [],
   "injectors": {

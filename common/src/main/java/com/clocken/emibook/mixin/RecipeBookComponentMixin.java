@@ -2,14 +2,20 @@ package com.clocken.emibook.mixin;
 
 import com.clocken.emibook.config.ModConfig;
 import dev.emi.emi.config.EmiConfig;
+import dev.emi.emi.config.RecipeBookAction;
+import dev.emi.emi.config.SidebarType;
+import dev.emi.emi.screen.EmiScreenManager;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RecipeBookComponent.class)
-public class RecipeBookComponentMixin {
+public abstract class RecipeBookComponentMixin {
 
     @Inject(method = "updateScreenPosition(II)I", at = @At("HEAD"), cancellable = true)
     private void emibook$updateScreenPosition(int width, int imageWidth, CallbackInfoReturnable<Integer> cir) {
@@ -19,15 +25,34 @@ public class RecipeBookComponentMixin {
         }
     }
 
-//    @ModifyReturnValue(method = "updateScreenPosition(II)I", at = @At("RETURN"))
-//    private int emibook$updateScreenPosition(int original, int width, int imageWidth) {
-//        int i;
-//
-//        if (EmiConfig.enabled && ModConfig.getConfig().screenShift) {
-//            i = 177 + (width - imageWidth - 200) / 2;
-//        } else {
-//            i = (width - imageWidth) / 2;
-//        }
-//        return i;
-//    }
+    @Shadow
+    public abstract boolean isVisible();
+    @Shadow
+    protected abstract void setVisible(boolean opened);
+
+    @Shadow
+    private int width;
+
+    @Shadow
+    private int height;
+
+    // Rewritten and expended mixin from EMI
+    @Inject(method = "toggleVisibility()V", at = @At("HEAD"), cancellable = true)
+    private void emibook$toggleVisibility(CallbackInfo ci) {
+        if (EmiConfig.recipeBookAction == RecipeBookAction.DEFAULT) {
+            return;
+        } else if (EmiConfig.recipeBookAction == RecipeBookAction.TOGGLE_CRAFTABLES) {
+            EmiScreenManager.toggleSidebarType(SidebarType.CRAFTABLES);
+        } else if (EmiConfig.recipeBookAction == RecipeBookAction.TOGGLE_VISIBILITY) {
+            EmiScreenManager.toggleVisibility(false);
+        }
+        if (isVisible()) {
+            setVisible(false);
+        }
+        // setting the screen just to update a button position for Reliable Advancements
+        Minecraft mc = Minecraft.getInstance();
+        mc.setScreen(mc.screen);
+
+        ci.cancel();
+    }
 }

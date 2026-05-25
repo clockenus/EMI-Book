@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(RecipeScreen.class)
+@Mixin(value = RecipeScreen.class, remap = false)
 public abstract class RecipeScreenMixin extends Screen {
     protected RecipeScreenMixin(Component title) {
         super(title);
@@ -23,9 +23,9 @@ public abstract class RecipeScreenMixin extends Screen {
     @Shadow
     int x;
 
-    @Inject(method = "setRecipePageWidth(I)V", at = @At(value = "INVOKE", target = "Ljava/util/List;get(I)Ljava/lang/Object;"))
+    @Inject(remap = false, method = "setRecipePageWidth(I)V", at = @At(value = "INVOKE", target = "Ljava/util/List;get(I)Ljava/lang/Object;"))
     private void emibook$setRecipePageWidth(CallbackInfo ci) {
-        if (EmiConfig.enabled && ModConfig.get().disableEmiOnScreenOpening) {
+        if (EmiConfig.enabled && ModConfig.get().screenShift) {
             this.x = 177 + (this.width - backgroundWidth - 200) / 2;
         }
     }

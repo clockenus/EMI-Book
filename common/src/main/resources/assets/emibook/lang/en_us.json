@@ -4,14 +4,20 @@
   "text.autoconfig.emibook.option.screenShift": "Screen shift",
   "text.autoconfig.emibook.option.screenShift.@Tooltip": "Shifts screen in the right direction when EMI is active (simulates a recipe book behaviour).",
 
-  "text.autoconfig.emibook.option.disableEmiOnScreenOpening": "Close EMI",
-  "text.autoconfig.emibook.option.disableEmiOnScreenOpening.@Tooltip": "Shows EMI only in places of Recipe Book.",
-
   "text.autoconfig.emibook.option.switchEffectLocation": "Switch effect location",
   "text.autoconfig.emibook.option.switchEffectLocation.@Tooltip": "Switches effect location from RIGHT to RIGHT_COMPRESSED when EMI is active.",
 
   "text.autoconfig.emibook.option.independentBinds": "Independent keybinds",
   "text.autoconfig.emibook.option.independentBinds.@Tooltip": "Makes EMI keybinds work even if it's not active.",
+
+  "text.autoconfig.emibook.option.addButtons": "Add Recipe Book buttons",
+  "text.autoconfig.emibook.option.addButtons.@Tooltip": "Adds Recipe Book buttons to some screens, that miss it, only when RecipeBookAction is not DEFAULT.",
+
+  "text.autoconfig.emibook.option.imitateRecipeBook": "Imitate Recipe Book",
+  "text.autoconfig.emibook.option.imitateRecipeBook.@Tooltip": "Shows EMI only in places of Recipe Book.",
+
+  "text.autoconfig.emibook.option.DISALLOWED_SCREENS": "Disallowed Screens",
+  "text.autoconfig.emibook.option.DISALLOWED_SCREENS.@Tooltip": "Screen classes, that disables EMI when \"Imitate Recipe Book\" is active.",
 
   "config.emi.presets.emibook": "EMI Book",
   "config.emi.presets.recipe_book": "Recipe Book",

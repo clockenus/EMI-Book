@@ -15,7 +15,8 @@ public class ModPresets {
     @EmiConfig.ConfigValue("presets.recipe-book")
     public static Runnable recipeBook = () -> {
         ModConfig.get().screenShift = true;
-        ModConfig.get().disableEmiOnScreenOpening = true;
+        ModConfig.get().addButtons = true;
+        ModConfig.get().imitateRecipeBook = true;
         ModConfig.get().switchEffectLocation = true;
         ModConfig.get().independentBinds = true;
         ModConfig.save();
@@ -54,7 +55,8 @@ public class ModPresets {
     @EmiConfig.ConfigValue("presets.two-pages")
     public static Runnable twoPages = () -> {
         ModConfig.get().screenShift = false;
-        ModConfig.get().disableEmiOnScreenOpening = true;
+        ModConfig.get().addButtons = true;
+        ModConfig.get().imitateRecipeBook = true;
         ModConfig.get().switchEffectLocation = false;
         ModConfig.get().independentBinds = true;
         ModConfig.save();

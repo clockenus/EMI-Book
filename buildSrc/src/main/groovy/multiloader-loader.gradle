@@ -19,6 +19,9 @@ dependencies {
     }
     commonJava project(path: ':common', configuration: 'commonJava')
     commonResources project(path: ':common', configuration: 'commonResources')
+
+    // MixinSquared
+    compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.3.7-beta.2"))
 }
 
 tasks.named('compileJava', JavaCompile) {
