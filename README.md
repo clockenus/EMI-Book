@@ -1,16 +1,17 @@
  [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine/)
 # Overview
-[![fabric](https://wsrv.nl/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2F%40intergrav%2Fdevins-badges%403%2Fassets%2Fcozy%2Fsupported%2Ffabric_vector.svg&n=-1)](https://fabricmc.net/)
-[![neoforge](https://wsrv.nl/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2F%40intergrav%2Fdevins-badges%403%2Fassets%2Fcozy%2Fsupported%2Fneoforge_vector.svg&n=-1)](https://neoforged.net/)
-
-**EMI Book** is a small addon for EMI Recipe Viewer, that adds custom config presets and behavior.
+**EMI Book** is a small addon for EMI Recipe Viewer, that adds custom config presets and behavior. Mostly aiming to make EMI feel and behave like an improved recipe book.
 ### Dependecies
 - [EMI Recipe Viewer](https://modrinth.com/mod/emi)
 - [Cloth Config](https://modrinth.com/mod/cloth-config)
 ## Features
-- Adds 2 custom Config Presets ("Recipe Book" and "Two Pages").
-- Option to shift screen in the right direction when EMI is opened (simulates a recipe book behavior; used in "Recipe Book" preset).
-- Option to close EMI every time a screen is opened (simulates a recipe book behavior).
+- **Config Presets:** custom EMI config presets, such as "Recipe Book" and "Two Pages".
+- **Screen shift:** shifts screen in the right direction when EMI is active, like Recipe Book.
+- **Recipe Book imitation:** shows EMI only in places of Recipe Book, with blocked screens from a configurable list.
+- **Recipe Book buttons:** adds Recipe Book buttons to some screens, that miss it, only when RecipeBookAction is not DEFAULT.
+- **Independent keybinds:** makes EMI keybinds work even if it's not active.
+- **Effect location switch:** switches effect location from RIGHT to RIGHT_COMPRESSED when EMI is active.
+- **Configurability:** all the features are disabled by default and can be turned on either with mod's EMI config presets or configured in config.
 ## Recommendations
 Mods, that improve expirience with EMI furthermore:
 - [TooManyRecipeViewers](https://modrinth.com/mod/tmrv) — a compatibility layer for running JEI plugins.
