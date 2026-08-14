@@ -2,8 +2,10 @@ package com.clocken.emibook;
 
 import com.clocken.emibook.config.ModConfig;
 import dev.emi.emi.config.EmiConfig;
+import dev.emi.emi.screen.RecipeScreen;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.recipebook.RecipeUpdateListener;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModLoadingContext;
@@ -32,16 +34,21 @@ public class EMIBook {
             if(!ModConfig.get().imitateRecipeBook) return;
 
             Screen screen = event.getNewScreen();
-            for (String disallowedScreen : ModConfig.get().DISALLOWED_SCREENS) {
-                try {
-                    Class<?> clazz = Class.forName(disallowedScreen);
-                    if(clazz.isInstance(screen)) {
-                        EmiConfig.enabled = false;
-                    }
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
+            if (!(Constants.BOOK_SCREENS.test(screen) || (ModConfig.get().addButtons && Constants.BUTTON_SCREENS.test(screen)))) {
+                EmiConfig.enabled = false;
             }
+
+
+//            for (String disallowedScreen : ModConfig.get().DISALLOWED_SCREENS) {
+//                try {
+//                    Class<?> clazz = Class.forName(disallowedScreen);
+//                    if(clazz.isInstance(screen)) {
+//                        EmiConfig.enabled = false;
+//                    }
+//                } catch (ClassNotFoundException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
         }
     }
 }

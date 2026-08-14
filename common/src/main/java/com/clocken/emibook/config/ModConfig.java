@@ -33,9 +33,9 @@ public class ModConfig implements ConfigData {
     @Comment("Shows EMI only in places of Recipe Book: true/false.")
     public boolean imitateRecipeBook = false;
 
-    @ConfigEntry.Gui.Tooltip
-    @Comment("Screen classes, that disables EMI when \"Imitate Recipe Book\" is active.")
-    public List<String> DISALLOWED_SCREENS;
+//    @ConfigEntry.Gui.Tooltip
+//    @Comment("Screen classes, that disables EMI when \"Imitate Recipe Book\" is active.")
+//    public List<String> DISALLOWED_SCREENS;
 
     public static ModConfig get() {
         return AutoConfig.getConfigHolder(ModConfig.class).getConfig();

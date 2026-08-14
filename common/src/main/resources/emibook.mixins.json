@@ -11,6 +11,7 @@
     "ConfigPresetScreenMixin",
     "RecipeBookComponentMixin",
     "RecipeScreenMixin",
+    "ScreenInvoker",
     "buttons.AnvilScreenMixin",
     "buttons.BrewingStandScreenMixin",
     "buttons.CartographyTableScreenMixin",

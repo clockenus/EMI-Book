@@ -28,13 +28,7 @@ public abstract class RecipeBookComponentMixin {
     @Shadow
     public abstract boolean isVisible();
     @Shadow
-    protected abstract void setVisible(boolean opened);
-
-    @Shadow
-    private int width;
-
-    @Shadow
-    private int height;
+    protected abstract void setVisible(boolean visible);
 
     // Rewritten and expended mixin from EMI
     @Inject(method = "toggleVisibility()V", at = @At("HEAD"), cancellable = true)
@@ -49,9 +43,9 @@ public abstract class RecipeBookComponentMixin {
         if (isVisible()) {
             setVisible(false);
         }
-        // setting the screen just to update a button position for Reliable Advancements
+        // rebuilds screen widgets for better compatibility with other mods
         Minecraft mc = Minecraft.getInstance();
-        mc.setScreen(mc.screen);
+        ((ScreenInvoker) mc.screen).emibook$rebuildWidgets();
 
         ci.cancel();
     }

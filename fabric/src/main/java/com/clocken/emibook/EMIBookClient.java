@@ -13,15 +13,8 @@ public class EMIBookClient implements ClientModInitializer {
         ScreenEvents.BEFORE_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
             if(!ModConfig.get().imitateRecipeBook) return;
 
-            for (String disallowedScreen : ModConfig.get().DISALLOWED_SCREENS) {
-                try {
-                    Class<?> clazz = Class.forName(disallowedScreen);
-                    if(clazz.isInstance(screen)) {
-                        EmiConfig.enabled = false;
-                    }
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
+            if (!(Constants.BOOK_SCREENS.test(screen) || (ModConfig.get().addButtons && Constants.BUTTON_SCREENS.test(screen)))) {
+                EmiConfig.enabled = false;
             }
         });
     }
